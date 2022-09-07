@@ -1,0 +1,427 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* Start Tutorial #1 */
+.middle{
+    width: 700px;
+    height: 300px;
+    background-color: #eee;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+.middle::before{
+    content: "";
+    width: 100%;
+    top: 50%;
+    background-color: #ddd;
+    height: 4px;
+    position: absolute;
+    margin-top: -2px;
+}
+.middle::after{
+    content: "";
+    height: 100%;
+    left: 50%;
+    background-color: #ddd;
+    width: 4px;
+    position: absolute;
+    margin-left: -2px;
+}
+.middle .box-red{
+    width: 150px;
+    height: 80px;
+    position: absolute;
+    background-color: red;
+}
+.middle .box-red{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 2;
+}
+.middle .box-yellow{
+    width: 120px;
+    height: 60px;
+    position: absolute;
+    background-color: yellow;
+    z-index: 3;
+}
+.middle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* End Tutorial #1 */
+
+/* Start Tutorial #2  */
+.swipe{
+    background-color: #333;
+    margin-top: 30px;
+    height: 200px;
+    display: flex;
+}
+.swipe a{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 3px solid #8bc34a;
+    position: relative;
+    overflow: hidden;
+}
+.swipe a span{
+    transition: transform 0.5s;
+}
+.swipe a::after{
+    content: attr(data-text);
+    color: red;
+    position: absolute;
+    transform: translateX(-200%);
+    transition: 0.5s;
+    font-weight: bold;
+}
+.swipe a:hover::after {
+    transform: translateX(0);
+}
+.swipe a:hover span{
+    position: absolute;
+    transform: translateX(200%);
+}
+/* End Tutorial #2 */
+
+/* Start Tutorial #3 */
+.fill{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.fill h2{
+    margin: 0;
+    font-size: 70px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 2px #333;
+    position: relative;
+    cursor: pointer;
+}
+.fill h2::before{
+    content: attr(data-text);
+    position: absolute;
+    -webkit-text-fill-color: #ff5722;
+    width: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.fill h2:hover::before{
+    width: 60%;
+}
+/* End Tutorial #3 */
+
+/* Start Tutorial #4 */
+.tip{
+    width: fit-content;
+    margin: 100px auto 0;
+}
+.tip button{
+    display: block;
+    position: relative;
+    background-color: #ddd;
+    border: none;
+    outline: none;
+    padding: 10px 30px;
+    font-size: 50px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.tip button:hover{
+    overflow: visible;
+}
+.tip span{
+    display: block;
+    background-color: #333;
+    padding: 10px 20px;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 225px;
+    border-radius: 25px;
+    opacity: 0;
+    transition: 0.5s;
+    cursor: text;
+}
+.tip span::before{
+    content: "";
+    border: 15px #333 solid;
+    border-color: #333 transparent transparent;
+    bottom: -30px;
+    left: 50%;
+    position: absolute;
+}
+.tip button:hover span{
+    opacity: 1;
+}
+/* End Tutorial #4 */
+
+/* Start Tutorial #5 */
+.ribbon{
+    width: 350px;
+    margin: 30px auto 0;
+    background-color: #ddd;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.ribbon p{
+    line-height: 1.6;
+}
+.ribbon h2{
+    background-color: #009688;
+    width: calc(100% + 80px);
+    padding: 15px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+.ribbon h2::before{
+    content: "";
+    border: #03453f 13px solid;
+    border-color: #03453f #03453f transparent transparent;
+    position: absolute;
+    bottom: -26px;
+    left: 0;
+}
+.ribbon h2::after{
+    content: "";
+    border: #03453f 13px solid;
+    border-color:#03453f transparent transparent #03453f;
+    position: absolute;
+    bottom: -26px;
+    right: 0;
+}
+/* End Tutorial #5 */
+
+/* Start Tutorial #6 */
+.fill-background{
+    width: 350px;
+    margin: 30px auto 0;
+    background-color: #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 12px 1px #777;
+    overflow: hidden;
+}
+.fill-background:hover{
+    color: white;
+}
+.fill-background p{
+    line-height: 1.6;
+    margin: 0;
+}
+.fill-background h2{
+    margin: 15px 0;
+}
+.fill-background span{
+    display: block;
+    background-color: #03453f;
+    width: 50px;
+    height: 50px;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.7s;
+}
+.fill-background:hover span{
+    box-shadow: 0 0 0 500px #03453f;
+}
+/* End Tutorial #6 */
+
+/* Start Tutorial #7 */
+.radio{
+    background-color: #eee;
+    padding: 20px;
+    font-size: 30px;
+    margin-top: 30px;
+}
+.radio div{
+    margin: 15px 0;
+}
+.radio div label{
+    position: relative;
+    padding-left: 40px;
+}
+.radio div input{
+    appearance: none;
+}
+.radio div input:checked + label{
+    color: #03a9f4;
+}
+.radio div label::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 2px solid #03a9f4;
+    left: 0;
+}
+.radio div label::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: #03a9f4;
+    left: 4.2px;
+    opacity: 0;
+}
+.radio div input:checked + label::after{
+    opacity: 1;
+}
+.radio div input:not(:checked):hover + label::after{
+    opacity: 0.2;
+}
+/* End Tutorial #7 */
+
+/* Start Tutorial #8 */
+.typewriter{
+    background-color: #333;
+    color: white;
+    font-size: 30px;
+    padding: 40px;
+    margin-top: 30px;
+}
+.typewriter p{
+    margin: auto;
+    animation: type 4.5s steps(16) both infinite, blink 0.7s infinite;
+    border-right: 2px solid white;
+    overflow: hidden;
+    height: 35px;
+    white-space: nowrap;
+}
+@keyframes type {
+    0% , 25%{
+        width: 0;
+    }
+    60%,100%{
+        width: 230px;
+    }
+}
+@keyframes blink {
+    to{
+        border-right-color: transparent;
+    }
+}
+/* End Tutorial #8 */
+
+/* Start Tutorial #9 */
+::-webkit-scrollbar{
+    width: 23px;
+}
+::-webkit-scrollbar-track{
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 0 0 12px #333 inset;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #f4433682;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: #f44336ba;
+}
+.scroll{
+    width: 300px;
+    height: 175px;
+    overflow: scroll;
+    margin: 30px auto;
+    background-color: #eee;
+    line-height: 2;
+    padding: 20px;
+}
+.scroll::-webkit-scrollbar{
+    width: 15px;
+}
+.scroll::-webkit-scrollbar-track{
+    background-color: #777;
+    border-radius: 0px;
+}
+.scroll::-webkit-scrollbar-thumb{
+    background-color: #8bc34a;
+    border-radius: 5px;
+}
+.scroll::-webkit-scrollbar-corner{
+    background-color: #ff5722;
+    border-radius: 0px;
+}
+/* End Tutorial #9 */
+
+/* Start Tutorial #10 */
+.drag{
+    background-color: #785fa4;
+    padding: 100px 0;
+}
+.drag .text{
+    margin: 30px auto;
+}
+.drag .text,
+.drag .boxes .box{
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px 25px;
+    width: 300px;
+    height: fit-content;
+}
+.drag .text input,
+.drag .text button,
+.drag .boxes .box p{
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+}
+.drag .text button,
+.drag .boxes .box p{
+    background-color: #7247bb;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+.drag .boxes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+/* End Tutorial #10 */
