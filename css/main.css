@@ -425,3 +425,208 @@
     justify-content: space-around;
 }
 /* End Tutorial #10 */
+
+/* Start Tutorial #11 */
+.bg{
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.bg::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 100%;
+    border-radius: 40%;
+    background-color: #03a9f4;
+    transform: translateX(-50%);
+    animation: wave 5s infinite alternate ease-in-out;
+}
+.bg .card{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    text-align: center;
+    background-color: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: inset black 0px 0px 25px -15px;
+    font-weight: bold;
+}
+.bg .card .image{
+    background-color: #03a9f4;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white;
+    font-size: 50px;
+}
+
+@keyframes wave {
+    from{
+        transform: translateX(-50%) skew(0deg,-9deg);
+    }to{
+        transform: translateX(-50%) skew(9deg,-3deg);
+    }
+}
+/* End Tutorial #11 */
+
+/* Start Tutorial #12 */
+.menu{
+    width: 50px;
+    margin: 30px auto;
+    position: relative;
+    height: 32px;
+    cursor: pointer;
+}
+.menu span{
+    background-color: black;
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.menu span:first-child{
+    top: 0;
+}
+.menu:hover span:first-child{
+    transform: rotate(45deg);
+}
+.menu span:nth-child(2){
+    top: 14px;
+}
+.menu:hover span:nth-child(2){
+    opacity: 0;
+}
+.menu span:last-child{
+    top: 28px;
+}
+.menu:hover span:last-child{
+    transform: rotate(-45deg);
+}
+.menu:hover span:first-child,
+.menu:hover span:last-child{
+    top: 14px;
+    background-color: #8bc34a;
+}
+/* End Tutorial #12 */
+
+/* Start Tutorial #13 */
+.clip{
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.clip div:first-child{
+    width: 200px;
+    height: 200px;
+    border: solid black 3px;
+    background-color: red;
+    clip-path: circle(70px at 80% 10%);
+}
+.clip div:nth-child(2){
+    width: 200px;
+    height: 200px;
+    border: solid black 3px;
+    background-color: #7247bb;
+    clip-path: polygon(50% 0% , 100% 100%, 0% 100%);
+}
+.clip div:last-child{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color:#ff5722;
+    border: none;
+    top: 0;
+    right: 0;
+    clip-path: polygon(0% 0% , 75% 50%, 0% 100%); /* you can do it by clip bath maker website */
+}
+/* End Tutorial #13 */
+
+/* Start Tutorial #14 */
+.load{
+    background-color: black;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+}
+.load p{
+    color: white;
+    font-size: 60px;
+    position: relative;
+}
+.load p::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 75px;
+    height: 100%;
+    background-color: white;
+    mix-blend-mode: difference;
+    animation: move infinite linear 2s;
+}
+
+@keyframes move {
+    0%,100%{
+        left: 0;
+    }
+    50%{
+        left: calc(100% - 75px);
+    }
+}
+/* End Tutorial #14 */
+
+/* Start Tutorial #15 */
+.loading{
+    position: relative;
+    height: 250px;
+}
+.loading div{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: #03a9f4 3px;
+    border-style: solid solid dashed dashed;
+    animation: round1 linear infinite 2s;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.loading::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: #8bc34a 3px;
+    border-style: solid dashed;
+    animation: round2 linear infinite 1s;
+}
+
+@keyframes round1 {
+    to{
+        transform: translate(-50%,-50%) rotate(1turn);
+    }
+}
+@keyframes round2 {
+    to{
+        transform: translate(-50%,-50%) rotate(-1turn);
+    }
+}
+/* End Tutorial #15 */
